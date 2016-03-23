@@ -10,8 +10,10 @@
 
 #define documentPath NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]
 #define homePath [documentPath stringByAppendingString:@"/homepage/"]
+#define DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface ZWHtmlLocalManager : NSObject
 
+- (void)downloadFilesFrom:(NSString *)url;
 - (NSArray *)drawPaths:(NSString *)textPath pattern:(NSString *)parttern source:(NSString *)source;
 @end

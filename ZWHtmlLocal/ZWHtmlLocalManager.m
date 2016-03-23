@@ -12,6 +12,11 @@
 
 @implementation ZWHtmlLocalManager
 
+- (void)downloadFilesFrom:(NSString *)url
+{
+    [self getUrlsFrom:nil host:url];
+}
+
 // 取出所有需要的链接.host就是资源的源地址,用于取出地址host与协议.filePath是文本文件路径.
 - (void)getUrlsFrom:(NSString *)filePath host:(NSString *)host
 {
