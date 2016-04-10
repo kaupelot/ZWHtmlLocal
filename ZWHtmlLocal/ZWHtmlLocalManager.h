@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define documentPath NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]
-#define homePath [documentPath stringByAppendingString:@"/homepage/"]
+#define homePath [documentPath stringByAppendingString:@"/homepage"]
 #define DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface ZWHtmlLocalManager : NSObject

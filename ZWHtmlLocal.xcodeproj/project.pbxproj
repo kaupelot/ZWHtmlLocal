@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2101D7D11C9FE4C600CD4406 /* NSString+check.m in Sources */ = {isa = PBXBuildFile; fileRef = 2101D7D01C9FE4C600CD4406 /* NSString+check.m */; };
+		2173567E1CBAEED50077049C /* iOS.html in Resources */ = {isa = PBXBuildFile; fileRef = 2173567D1CBAEED50077049C /* iOS.html */; };
 		21B340241C9F295100D46253 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B340231C9F295100D46253 /* main.m */; };
 		21B340271C9F295100D46253 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B340261C9F295100D46253 /* AppDelegate.m */; };
 		21B3402A1C9F295100D46253 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B340291C9F295100D46253 /* ViewController.m */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		2101D7CF1C9FE4C600CD4406 /* NSString+check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+check.h"; sourceTree = "<group>"; };
 		2101D7D01C9FE4C600CD4406 /* NSString+check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+check.m"; sourceTree = "<group>"; };
+		2173567D1CBAEED50077049C /* iOS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = iOS.html; sourceTree = "<group>"; };
 		21B3401F1C9F295100D46253 /* ZWHtmlLocal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWHtmlLocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B340231C9F295100D46253 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21B340251C9F295100D46253 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		21E55D681CA22E9700E564EF /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				2173567D1CBAEED50077049C /* iOS.html */,
 			);
 			name = Files;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21B340321C9F295100D46253 /* LaunchScreen.storyboard in Resources */,
+				2173567E1CBAEED50077049C /* iOS.html in Resources */,
 				21B3402F1C9F295100D46253 /* Assets.xcassets in Resources */,
 				21B3402D1C9F295100D46253 /* Main.storyboard in Resources */,
 			);

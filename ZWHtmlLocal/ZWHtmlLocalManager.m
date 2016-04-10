@@ -14,7 +14,45 @@
 
 - (void)downloadFilesFrom:(NSString *)url
 {
-    [self getUrlsFrom:nil host:url];
+    NSString *address = @"/iOS.html";
+    [[ZWHtmlLocalDownloader shareData] downloadFileToAddress:address url:url success:^{
+        // 将所有原有记录数据清空,进行下载.
+        [[ZWHtmlLocalDownloader shareData].fileArray removeAllObjects];
+        [DEFAULTS setObject:[ZWHtmlLocalDownloader shareData].fileArray forKey:@"files"];
+        [self getUrlsFrom:[homePath stringByAppendingString:address] host:url];
+    } failure:^(NSError *err) {
+        
+    }];
+}
+
+// 检测静态资源.
++ (void)checkList
+{
+    NSArray *fileArray = [ZWHtmlLocalDownloader shareData].fileArray;
+    if (fileArray.count) {// 规避fileArray没有值的情况
+        [DEFAULTS setBool:YES forKey:@"allFiles"];
+    }
+    
+    // 循环调取出所有的字典判断值.
+    for (int i = 0; i < fileArray.count; i++) {
+        if ([fileArray[i] isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dict = fileArray[i];
+            NSString *str = [dict objectForKey:@"localAdd"];
+            NSString *url = [dict objectForKey:@"url"];
+            NSString *path = [NSString stringWithFormat:@"%@%@",homePath,str];
+            if (![[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:NULL]) {
+                [DEFAULTS setBool:NO forKey:@"allFiles"];
+                [[ZWHtmlLocalDownloader shareData] downloadFileToAddress:str url:url success:^{
+                    if ([str hasSuffix:@".css"]) { // 当css文件成功下载完成之后,进入开始获取数据
+                        ZWHtmlLocalManager *manager = [[ZWHtmlLocalManager alloc] init];
+                        [manager getUrlsFrom:path host:url];
+                    }
+                } failure:^(NSError *err) {
+                    
+                }];
+            }
+        }
+    }
 }
 
 // 取出所有需要的链接.host就是资源的源地址,用于取出地址host与协议.filePath是文本文件路径.
@@ -40,6 +78,7 @@
 
 - (void)writeFileWith:(NSArray *)array
 {
+    [DEFAULTS setBool:YES forKey:@"allFiles"];
     for (NSDictionary *dict in array) {
         NSMutableDictionary *geo = [NSMutableDictionary dictionary];
         [geo setValuesForKeysWithDictionary:dict];
@@ -56,10 +95,12 @@
             if (err.code == 404) {
                 [[ZWHtmlLocalDownloader shareData].fileArray removeObject:dict];
                 [[NSUserDefaults standardUserDefaults] setObject:[ZWHtmlLocalDownloader shareData].fileArray forKey:@"files"];
+            } else {
+                [DEFAULTS setBool:NO forKey:@"allFiles"];
             }
         }];
-        
     }
+//    [ZWHtmlLocalManager checkList]; // 检测是否下载完成
 }
 
 // 从html代码中取出符合要求的.source就是直接传入的网址.
@@ -97,8 +138,8 @@
                 NSString *filePath = get;
                 
                 // 调试使用断点.
-                if ([get myContainsString:@"srctag=xzydibudh5"]) {
-                    
+                if ([get myContainsString:@".html"]) {
+                    break;
                 }
                 
                 // 判断是否是网址
@@ -152,9 +193,6 @@
             NSLog(@"%@",error);
         }
     }
-    NSLog(@"测试输入\n中关村大街");
-    
-    NSLog(@"%@",listImage);
     return listImage;
 }
 

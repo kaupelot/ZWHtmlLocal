@@ -22,11 +22,18 @@ static ZWHtmlLocalDownloader *data = nil;
     return data;
 }
 
+- (NSMutableArray *)fileArray
+{
+    if (_fileArray == nil) {
+        NSArray *temp = [[NSUserDefaults standardUserDefaults] objectForKey:@"files"];
+        _fileArray = [NSMutableArray arrayWithArray:temp];
+    }
+    return _fileArray;
+}
+
 // 下载并写入bannner图片.此方法仅操作沙盒中homepage文件夹下的写入动作.
 - (void)downloadFileToAddress:(NSString *)address url:(NSString *)url success:(void (^)(void))success failure:(void (^)(NSError* err))failure
 {
-    //    NSString *fileUrl = [NSString stringWithFormat:@"http://tmw.fun-fang.com/%@",address];
-    //    url = @"http://tmw.fun-fang.com/index4iosd";
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
     // 检测传过来的地址是否包含"/"
     if ([address hasPrefix:@"/"]) {
@@ -65,7 +72,7 @@ static ZWHtmlLocalDownloader *data = nil;
     
     // 将文件写入目录
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    //    __weak YFAdManager *manager = self;
+    //
     NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
         if (data && httpResponse.statusCode == 200) { // 通过head的status判断来确定是否可以加载.

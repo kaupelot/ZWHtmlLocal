@@ -19,18 +19,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [self.webView loadRequest:request];
-    
+//    
+//    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    [self.webView loadRequest:request];
+//
+    [self loadHtml];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)loadHtml
 {
-    NSString *indexHtml = [homePath stringByAppendingString:@"iOS.html"];
+    NSString *indexHtml = [homePath stringByAppendingString:@"/iOS.html"];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:indexHtml isDirectory:NULL] || ![[NSUserDefaults standardUserDefaults] boolForKey:@"allFiles"]) {
         //        NSString *urlStr = @"http://tmw.fun-fang.com/index4ios";   // 不应该加载网页,由本地配置的文件加载.
@@ -41,9 +42,9 @@
             NSLog(@"exist");
         }
         [DEFAULTS setBool:YES forKey:@"localHome"];
-        indexHtml = [[NSBundle mainBundle] pathForResource:@"ExampleApp" ofType:@"html"];  // 引入本地的默认的文件.
+        indexHtml = [[NSBundle mainBundle] pathForResource:@"iOS" ofType:@"html"];  // 引入本地的默认的文件.
         ZWHtmlLocalManager *manager = [[ZWHtmlLocalManager alloc] init];
-        [manager downloadFilesFrom:@"http://hao123.com"];
+        [manager downloadFilesFrom:@"http://www.youku.com"];
         // 还是改回完全重新获取页面的模式,一次删除所有记录.
     }
     
@@ -60,7 +61,7 @@
 
 - (IBAction)switch:(id)sender {
     
-    
+    [self loadHtml];
 }
 
 - (void)didReceiveMemoryWarning {
