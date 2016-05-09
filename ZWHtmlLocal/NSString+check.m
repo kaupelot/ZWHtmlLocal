@@ -225,48 +225,6 @@ static NSString *const kFragmentBegin       = @"#";
     return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
-//  原有方法 2016年02月01日
-//- (NSString *)urlencode
-//{
-//    NSMutableString *output = [NSMutableString string];
-//    const unsigned char *source = (const unsigned char *)[self UTF8String];
-//    int sourceLen = (int)strlen((const char *)source);
-//    for (int i = 0; i < sourceLen; ++i) {
-//        const unsigned char thisChar = source[i];
-//        if (thisChar == ' '){
-//            [output appendString:@"+"];
-//        } else if (thisChar == '.' || thisChar == '-' || thisChar == '_' || thisChar == '~' ||
-//                   (thisChar >= 'a' && thisChar <= 'z') ||
-//                   (thisChar >= 'A' && thisChar <= 'Z') ||
-//                   (thisChar >= '0' && thisChar <= '9')) {
-//            [output appendFormat:@"%c", thisChar];
-//        } else {
-//            [output appendFormat:@"%%%02X", thisChar];
-//        }
-//    }
-//    return output;
-//}
-
-/*
-汉字与utf8相互转化:
-
-NSString* strA = [@"%E4%B8%AD%E5%9B%BD"stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-NSString *strB = [@"中国"stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
-
-
-NSString 转化为utf8:
-
-NSString *strings = [NSStringstringWithFormat:@"abc"];
-
-NSLog(@"strings : %@",strings);
-
-CF_EXPORT
-CFStringRef CFURLCreateStringByAddingPercentEscapes(CFAllocatorRef allocator,CFStringReforiginalString,CFStringRef charactersToLeaved, CFStringReflegalURLCharactersToBeEscaped,CFStringEncoding encoding);
-
-NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(__bridgeCFStringRef)strings,nil, (CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8);
-*/
-
 
 // iso8859－1 到 unicode编码转换:
 

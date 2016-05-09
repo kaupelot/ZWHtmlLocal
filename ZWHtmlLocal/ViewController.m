@@ -26,26 +26,17 @@
 //    [self.webView loadRequest:request];
 //
     [self loadHtml];
-    // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
+// 测试加载资源
 - (void)loadHtml
 {
     NSString *indexHtml = [homePath stringByAppendingString:@"/iOS.html"];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:indexHtml isDirectory:NULL] || ![[NSUserDefaults standardUserDefaults] boolForKey:@"allFiles"]) {
-        //        NSString *urlStr = @"http://tmw.fun-fang.com/index4ios";   // 不应该加载网页,由本地配置的文件加载.
-        if ([DEFAULTS boolForKey:@"allFiles"]) {
-            NSLog(@"allFiles");
-        }
-        if ([[NSFileManager defaultManager] fileExistsAtPath:indexHtml isDirectory:NULL] ) {
-            NSLog(@"exist");
-        }
-        [DEFAULTS setBool:YES forKey:@"localHome"];
-        indexHtml = [[NSBundle mainBundle] pathForResource:@"iOS" ofType:@"html"];  // 引入本地的默认的文件.
-        ZWHtmlLocalManager *manager = [[ZWHtmlLocalManager alloc] init];
-        [manager downloadFilesFrom:@"http://www.youku.com"];
-        // 还是改回完全重新获取页面的模式,一次删除所有记录.
+        
+        [self changeSourceWith:indexHtml];
     }
     
     NSString *appHtml = [NSString stringWithContentsOfFile:indexHtml encoding:NSUTF8StringEncoding error:nil];
@@ -57,6 +48,22 @@
     } else {
         [self.webView loadHTMLString:appHtml baseURL:baseURL];
     }
+}
+
+// 更改资源地址
+- (void)changeSourceWith:(NSString *)indexHtml
+{
+    if ([DEFAULTS boolForKey:@"allFiles"]) {
+        NSLog(@"allFiles");
+    }
+    if ([[NSFileManager defaultManager] fileExistsAtPath:indexHtml isDirectory:NULL] ) {
+        NSLog(@"exist");
+    }
+    [DEFAULTS setBool:YES forKey:@"localHome"];
+    indexHtml = [[NSBundle mainBundle] pathForResource:@"iOS" ofType:@"html"];  // 引入本地的默认的文件.
+    ZWHtmlLocalManager *manager = [[ZWHtmlLocalManager alloc] init];
+    [manager downloadFilesFrom:@"http://www.youku.com"];
+    // 还是改回完全重新获取页面的模式,一次删除所有记录.
 }
 
 - (IBAction)switch:(id)sender {
