@@ -32,7 +32,7 @@
 // 测试加载资源
 - (void)loadHtml
 {
-    NSString *indexHtml = [homePath stringByAppendingString:@"/iOS.html"];
+    NSString *indexHtml = [homePath stringByAppendingString:@"/index.html"];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:indexHtml isDirectory:NULL] || ![[NSUserDefaults standardUserDefaults] boolForKey:@"allFiles"]) {
         
@@ -60,7 +60,7 @@
         NSLog(@"exist");
     }
     [DEFAULTS setBool:YES forKey:@"localHome"];
-    indexHtml = [[NSBundle mainBundle] pathForResource:@"iOS" ofType:@"html"];  // 引入本地的默认的文件.
+    indexHtml = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];  // 引入本地的默认的文件.
     ZWHtmlLocalManager *manager = [[ZWHtmlLocalManager alloc] init];
     [manager downloadFilesFrom:@"http://www.youku.com"];
     // 还是改回完全重新获取页面的模式,一次删除所有记录.

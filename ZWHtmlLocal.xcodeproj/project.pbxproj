@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2101D7D11C9FE4C600CD4406 /* NSString+check.m in Sources */ = {isa = PBXBuildFile; fileRef = 2101D7D01C9FE4C600CD4406 /* NSString+check.m */; };
-		2173567E1CBAEED50077049C /* iOS.html in Resources */ = {isa = PBXBuildFile; fileRef = 2173567D1CBAEED50077049C /* iOS.html */; };
 		21B340241C9F295100D46253 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B340231C9F295100D46253 /* main.m */; };
 		21B340271C9F295100D46253 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B340261C9F295100D46253 /* AppDelegate.m */; };
 		21B3402A1C9F295100D46253 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B340291C9F295100D46253 /* ViewController.m */; };
@@ -19,6 +18,8 @@
 		21B340481C9F295100D46253 /* ZWHtmlLocalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B340471C9F295100D46253 /* ZWHtmlLocalUITests.m */; };
 		21B340581C9F298100D46253 /* ZWHtmlLocalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B340571C9F298100D46253 /* ZWHtmlLocalManager.m */; };
 		21B3405B1C9F299900D46253 /* ZWHtmlLocalDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B3405A1C9F299900D46253 /* ZWHtmlLocalDownloader.m */; };
+		21EAAE731CE6DC3400317329 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 21EAAE711CE6DC3400317329 /* jquery.min.js */; };
+		21EAAE741CE6DC3400317329 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 21EAAE721CE6DC3400317329 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,6 @@
 /* Begin PBXFileReference section */
 		2101D7CF1C9FE4C600CD4406 /* NSString+check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+check.h"; sourceTree = "<group>"; };
 		2101D7D01C9FE4C600CD4406 /* NSString+check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+check.m"; sourceTree = "<group>"; };
-		2173567D1CBAEED50077049C /* iOS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = iOS.html; sourceTree = "<group>"; };
 		21B3401F1C9F295100D46253 /* ZWHtmlLocal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWHtmlLocal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B340231C9F295100D46253 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21B340251C9F295100D46253 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		21B340571C9F298100D46253 /* ZWHtmlLocalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWHtmlLocalManager.m; sourceTree = "<group>"; };
 		21B340591C9F299900D46253 /* ZWHtmlLocalDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWHtmlLocalDownloader.h; sourceTree = "<group>"; };
 		21B3405A1C9F299900D46253 /* ZWHtmlLocalDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWHtmlLocalDownloader.m; sourceTree = "<group>"; };
+		21EAAE711CE6DC3400317329 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
+		21EAAE721CE6DC3400317329 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +171,8 @@
 		21E55D681CA22E9700E564EF /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				2173567D1CBAEED50077049C /* iOS.html */,
+				21EAAE711CE6DC3400317329 /* jquery.min.js */,
+				21EAAE721CE6DC3400317329 /* index.html */,
 			);
 			name = Files;
 			sourceTree = "<group>";
@@ -279,7 +282,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				21B340321C9F295100D46253 /* LaunchScreen.storyboard in Resources */,
-				2173567E1CBAEED50077049C /* iOS.html in Resources */,
+				21EAAE731CE6DC3400317329 /* jquery.min.js in Resources */,
+				21EAAE741CE6DC3400317329 /* index.html in Resources */,
 				21B3402F1C9F295100D46253 /* Assets.xcassets in Resources */,
 				21B3402D1C9F295100D46253 /* Main.storyboard in Resources */,
 			);
