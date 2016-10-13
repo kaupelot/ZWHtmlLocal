@@ -17,5 +17,6 @@
 
 // 此方法仅操作沙盒中homepage文件夹下的写入动作.有一段时间没有敲代码了,想到自己的堕落实在是悔不应该.
 - (void)downloadFileToAddress:(NSString *)address url:(NSString *)url success:(void (^)(void))success failure:(void (^)(NSError* err))failure;
-
+// 所以资源下载完成之后业务调用
+- (void)allComplete:(void (^)(void))success failure:(void (^)(NSError *err))failure;
 @end

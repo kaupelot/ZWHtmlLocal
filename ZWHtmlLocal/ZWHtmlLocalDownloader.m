@@ -31,7 +31,7 @@ static ZWHtmlLocalDownloader *data = nil;
     return _fileArray;
 }
 
-// 下载并写入bannner图片.此方法仅操作沙盒中homepage文件夹下的写入动作.
+// 下载并写入.此方法仅操作沙盒中homepage文件夹下的写入动作.
 - (void)downloadFileToAddress:(NSString *)address url:(NSString *)url success:(void (^)(void))success failure:(void (^)(NSError* err))failure
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
